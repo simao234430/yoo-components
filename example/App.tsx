@@ -2,13 +2,14 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import {Tag} from "../packages";
+import Button from '../packages/Button'
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-    <Tag color='red'>我是标签</Tag>
+    <Button style={{color:'red'}}>Button</Button>
+    {/* <Tag color='red'>我是标签</Tag> */}
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
