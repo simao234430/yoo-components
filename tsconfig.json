@@ -1,17 +1,23 @@
 {
   "compilerOptions": {
+    "noEmit": false, // 允许生成文件
+    "declaration": true, // 需要设置为 true 来支持类型
+    "emitDeclarationOnly": true, // 只生成类型文件
+    "declarationDir": "lib", // 类型文件的导出目录
+   
+ 
+
     "target": "ESNext",
     "useDefineForClassFields": true,
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
-
+    "allowJs": false,
     /* Bundler mode */
-    "moduleResolution": "bundler",
+    "moduleResolution": "Node",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
+ 
     "jsx": "react-jsx",
 
     /* Linting */
@@ -20,6 +26,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["example"],
+  "include": ["packages"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

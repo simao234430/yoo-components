@@ -1,11 +1,25 @@
 
-import type {ButtonProps} from './interface'
+import {ButtonProps} from './interface'
  
 
 function Button(props: ButtonProps) {
-  const { children, ...rest } = props
-
-  return <button {...rest}>{children}</button>
+  const { children, style} = props
+  const InnerContent = (
+    <>
+      { children}
+    </>
+  );
+  return (
+    <button
+ 
+      style={style}
+ 
+    >
+      {InnerContent}
+    </button>
+  );
 }
 
-export default  Button
+
+export default Button
+

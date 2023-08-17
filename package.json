@@ -1,6 +1,6 @@
 {
   "name": "@simao234430/yoo-components",
-  "version": "0.0.5",
+  "version": "0.0.22",
   "private": false,
   "type": "module",
   "keywords": [
@@ -8,6 +8,9 @@
     "react",
     "components"
   ],
+  "main": "./dist/yoo-components.es.js",
+  "module": "./dist/yoo-components.es.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "vite build && tsc ",
@@ -32,7 +35,8 @@
     "eslint-plugin-react-refresh": "^0.4.3",
     "less": "^4.2.0",
     "typescript": "^5.0.2",
-    "vite": "^4.4.5"
+    "vite": "^4.4.5",
+    "vite-plugin-dts": "^3.5.2"
   },
   "dependencies": {
     "@rollup/plugin-typescript": "^11.1.2",

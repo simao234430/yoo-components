@@ -1,5 +1,3 @@
- 
-export { default as Button } from './Button';
+// eslint-disable-next-line react-refresh/only-export-components
 // export type { ButtonProps } from './Button/interface';
-
-// export { default as Tag } from './Tag'
+export { default as Button } from './Button';
