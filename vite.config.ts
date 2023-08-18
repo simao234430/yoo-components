@@ -17,8 +17,14 @@ function resolve(str: string) {
 }
 
 export default defineConfig({
+  resolve: {
+    alias: {
+      'react/jsx-runtime': 'react/jsx-runtime.js',
+    },
+  },
   plugins: [
-    react(),
+    react({      jsxRuntime: 'classic',}
+    ),
     dts({
       insertTypesEntry: true,
     }),
@@ -35,7 +41,7 @@ export default defineConfig({
     // 输出文件夹
     outDir: 'dist',
     lib: {
-      entry: resolve('packages/index.tsx'),
+      entry: resolve('packages/components/src/index.ts'),
       name: "yoo-components",
       // 文件名称, 打包结果举例: suemor.cjs
       fileName: (format) => `yoo-components.${format}.js`,

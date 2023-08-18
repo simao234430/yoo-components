@@ -5,19 +5,19 @@ import {
   ReactNode,
   AnchorHTMLAttributes,
   ButtonHTMLAttributes,
-} from 'react';
+} from 'react'
 
 export type BaseButtonProps = {
-  style?: CSSProperties;
-  
-  children?: ReactNode;
+  style?: CSSProperties
+
+  children?: ReactNode
 }
 export type AnchorButtonProps = {
-  href: string;
-  target?: string;
-  anchorProps?: HTMLProps<HTMLAnchorElement>;
+  href: string
+  target?: string
+  anchorProps?: HTMLProps<HTMLAnchorElement>
 } & BaseButtonProps &
-  Omit<AnchorHTMLAttributes<any>, 'type' | 'onClick' | 'className'>;
+  Omit<AnchorHTMLAttributes<any>, 'type' | 'onClick' | 'className'>
 
 export type FinalButtonProps = {
   /**
@@ -25,14 +25,14 @@ export type FinalButtonProps = {
    * @en html button type
    * @defaultValue button
    */
-  htmlType?: 'button' | 'submit' | 'reset';
+  htmlType?: 'button' | 'submit' | 'reset'
 } & BaseButtonProps &
-  Omit<ButtonHTMLAttributes<any>, 'type' | 'onClick' | 'className'>;
+  Omit<ButtonHTMLAttributes<any>, 'type' | 'onClick' | 'className'>
 
 /**
  * @title Button
  */
-export type ButtonProps = Partial<FinalButtonProps & AnchorButtonProps>;
+export type ButtonProps = Partial<FinalButtonProps & AnchorButtonProps>
 
 // export type AnchorButtonProps = {
 //   href: string;
@@ -56,5 +56,3 @@ export type ButtonProps = Partial<FinalButtonProps & AnchorButtonProps>;
 //  * @title Button
 //  */
 // export type ButtonProps = Partial<FinalButtonProps & AnchorButtonProps>;
-
- 

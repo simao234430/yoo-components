@@ -5,7 +5,8 @@
     "emitDeclarationOnly": true, // 只生成类型文件
     "declarationDir": "lib", // 类型文件的导出目录
    
- 
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
 
     "target": "ESNext",
     "useDefineForClassFields": true,
