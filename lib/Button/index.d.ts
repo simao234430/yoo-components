@@ -1,4 +1,4 @@
 /// <reference types="react" />
 import { ButtonProps } from './interface';
-declare function Button(props: ButtonProps): JSX.Element;
+declare function Button(baseProps: ButtonProps, ref: any): JSX.Element;
 export default Button;

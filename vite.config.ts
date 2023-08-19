@@ -4,25 +4,17 @@ import react from '@vitejs/plugin-react'
 import { readFileSync } from 'fs'
 import path from 'path'
 import dts from 'vite-plugin-dts';
-
-const packageJson = JSON.parse(
-  readFileSync('./package.json', { encoding: 'utf-8' }),
-)
-const globals = {
-  ...(packageJson?.dependencies || {}),
-}
-
+// import typescript from 'rollup-plugin-typescript2';
+ 
+ 
 function resolve(str: string) {
   return path.resolve(__dirname, str)
 }
 
 export default defineConfig({
-  resolve: {
-    alias: {
-      'react/jsx-runtime': 'react/jsx-runtime.js',
-    },
-  },
+ 
   plugins: [
+ 
     react({      jsxRuntime: 'classic',}
     ),
     dts({
@@ -30,14 +22,25 @@ export default defineConfig({
     }),
     // typescript({
     //   target: 'es5',
-    //   rootDir: resolve('packages/'),
+    //   rootDir: resolve('packages/components/src'),
     //   declaration: true,
     //   declarationDir: resolve('dist'),
     //   exclude: resolve('node_modules/**'),
     //   allowSyntheticDefaultImports: true,
     // }),
+
   ],
+  css: {
+    preprocessorOptions: {
+      less: {
+        math: "always",
+        relativeUrls: true,
+        javascriptEnabled: true,
+      },
+    },
+  },
   build: {
+    sourcemap: true,
     // 输出文件夹
     outDir: 'dist',
     lib: {
@@ -48,7 +51,7 @@ export default defineConfig({
       // 打包格式
       formats: ['es', 'umd'],
     },
- 
+
     // lib: {
     //   // 组件库源码的入口文件
     //   entry: resolve('packages/index.tsx'),
@@ -60,17 +63,17 @@ export default defineConfig({
     //   formats: ['es', 'umd'],
     // },
 
-    rollupOptions: {
-      //排除不相关的依赖
-      external: ['react', 'react-dom', ...Object.keys(globals)],
-      output: {
-        // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
-        globals: {
-          react: 'react',
-          'react-dom': 'react-dom',
-        },
-      },
+    // rollupOptions: {
+    //   //排除不相关的依赖
+    //   external: ['react', 'react-dom'],
+    //   output: {
+    //     // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
+    //     globals: {
+    //       react: 'react',
+    //       'react-dom': 'react-dom',
+    //     },
+    //   },
 
-    },
+    // },
   },
 })

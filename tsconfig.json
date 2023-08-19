@@ -1,32 +1,24 @@
 {
   "compilerOptions": {
-    "noEmit": false, // 允许生成文件
-    "declaration": true, // 需要设置为 true 来支持类型
-    "emitDeclarationOnly": true, // 只生成类型文件
-    "declarationDir": "lib", // 类型文件的导出目录
-   
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-
-    "target": "ESNext",
-    "useDefineForClassFields": true,
-    "lib": ["ESNext", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
-    "skipLibCheck": true,
-    "allowJs": false,
-    /* Bundler mode */
-    "moduleResolution": "Node",
-    "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
- 
-    "jsx": "react-jsx",
-
-    /* Linting */
-    "strict": true,
+    "outDir": "es",
+    "jsx": "react",
+    "module": "es6",
+    "target": "es5",
+    "lib": ["es5", "dom"],
+    "moduleResolution": "node",
+    "declaration": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./",
+    "paths": {
+      "@simao234430/yoo-components": ["packages/components/src/index.tsx"],
+    }
   },
-  "include": ["packages"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["packages/components/src/**/*.ts", "packages/components/src/**/*.tsx"],
+  "exclude": ["node_modules", "build"] // *** 不进行类型检查的文件 ***}
 }
