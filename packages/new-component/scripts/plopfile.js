@@ -19,20 +19,26 @@ export default function (plop) {
       {
         // ../../components/src/Button/index.tsx
         type: 'add',
-        path: path.resolve(__dirname, '../../components/src/{{pascalCase name}}/index.ts'),
+        path: path.resolve(__dirname, '../../components/src/{{pascalCase name}}/index.tsx'),
         templateFile: path.resolve(__dirname, '../templates/component/index.hbs'),
       },
       {
-        // ../../components/src/Button/Button.tsx
+        // ../../components/src/Button/index.tsx
         type: 'add',
-        path: path.resolve(__dirname, '../../components/src/{{pascalCase name}}/{{pascalCase name}}.tsx'),
-        templateFile: path.resolve(__dirname, '../templates/component/comp.hbs'),
+        path: path.resolve(__dirname, '../../components/src/{{pascalCase name}}/interface.ts'),
+        templateFile: path.resolve(__dirname, '../templates/component/interface.hbs'),
       },
+      // {
+      //   // ../../components/src/Button/Button.tsx
+      //   type: 'add',
+      //   path: path.resolve(__dirname, '../../components/src/{{pascalCase name}}/{{pascalCase name}}.tsx'),
+      //   templateFile: path.resolve(__dirname, '../templates/component/comp.hbs'),
+      // },
       // style
       {
         // ../../components/src/Button/style/index.css
         type: 'add',
-        path: path.resolve(__dirname, '../../components/src/{{pascalCase name}}/style/index.css'),
+        path: path.resolve(__dirname, '../../components/src/{{pascalCase name}}/style/index.less'),
         templateFile: path.resolve(__dirname, '../templates/component/style/style.hbs'),
       },
       {
@@ -41,24 +47,35 @@ export default function (plop) {
         path: path.resolve(__dirname, '../../components/src/{{pascalCase name}}/style/index.ts'),
         templateFile: path.resolve(__dirname, '../templates/component/style/index.hbs'),
       },
+      {
+        // ../../components/src/Button/style/token.less
+        type: 'add',
+        path: path.resolve(__dirname, '../../components/src/{{pascalCase name}}/style/token.less'),
+        templateFile: path.resolve(__dirname, '../templates/component/style/token.hbs'),
+      },
       // docs
-      {
-        type: 'add',
-        path: path.resolve(__dirname, '../../example/docs/components/{{pascalCase name}}.mdx'),
-        templateFile: path.resolve(__dirname, '../templates/docs/docs.hbs'),
-      },
+      // {
+      //   type: 'add',
+      //   path: path.resolve(__dirname, '../../example/docs/components/{{pascalCase name}}.mdx'),
+      //   templateFile: path.resolve(__dirname, '../templates/docs/docs.hbs'),
+      // },
       // demo
-      {
-        // ../../components/src/Button/demo/index.ts
-        type: 'add',
-        path: path.resolve(__dirname, '../../components/src/{{pascalCase name}}/demo/index.tsx'),
-        templateFile: path.resolve(__dirname, '../templates/component/demo/index.hbs'),
-      },
+      // {
+      //   // ../../components/src/Button/demo/index.ts
+      //   type: 'add',
+      //   path: path.resolve(__dirname, '../../components/src/{{pascalCase name}}/demo/index.tsx'),
+      //   templateFile: path.resolve(__dirname, '../templates/component/demo/index.hbs'),
+      // },
       // tests
+      // {
+      //   type: 'add',
+      //   path: path.resolve(__dirname, '../../components/src/{{pascalCase name}}/__tests__/index.test.tsx'),
+      //   templateFile: path.resolve(__dirname, '../templates/component/__tests__/index.test.hbs'),
+      // },
       {
-        type: 'add',
-        path: path.resolve(__dirname, '../../components/src/{{pascalCase name}}/__tests__/index.test.tsx'),
-        templateFile: path.resolve(__dirname, '../templates/component/__tests__/index.test.hbs'),
+        type: 'append',
+        path: path.resolve(__dirname, '../../components/src/index.ts'),
+        template: "export type { {{pascalCase name}}Props  } from './{{pascalCase name}}/interface'",
       },
       // index
       {

@@ -1,3 +1,33 @@
-import {{pascalCase name}} from './{{pascalCase name}}'
-export type { {{pascalCase name}}Props } from './{{pascalCase name}}'
-export default {{pascalCase name}}
+import React, { forwardRef, useContext } from 'react';
+import type { {{pascalCase name}}Props } from './interface';
+import useMergeProps from '../_util/hooks/useMergeProps';
+import { ConfigContext } from '../ConfigProvider';
+import cs from '../_util/classNames';
+
+const defaultProps: {{pascalCase name}}Props = {
+
+};
+  
+function {{pascalCase name}}(baseProps: {{pascalCase name}}Props, ref) {
+  const { getPrefixCls } = useContext(ConfigContext);
+  const props = useMergeProps<{{pascalCase name}}Props>(baseProps, defaultProps, {}); 
+  const { className } = props;
+
+  const prefixCls = getPrefixCls('');
+
+  const classNames = cs(
+    prefixCls,
+    className
+  );
+  return(
+    <div className={classNames} ref={ref}>
+    </div>
+  )
+}
+
+const {{pascalCase name}}Component = forwardRef<unknown, {{pascalCase name}}Props>({{pascalCase name}});
+
+  
+{{pascalCase name}}Component.displayName = '{{pascalCase name}}';
+
+export default {{pascalCase name}}Component;

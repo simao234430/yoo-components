@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import { Button } from '../packages/components/src'
+import { Button, Space } from '../packages/components/src'
 import React from 'react'
  
 function App() {
@@ -8,11 +8,20 @@ function App() {
 
   return (
     <>
-      <Button type='primary'>Primary</Button>
-      <Button type='secondary'>Secondary</Button>
-      <Button type='dashed'>Dashed</Button>
-      <Button type='outline'>Outline</Button>
-      <Button type='text'>Text</Button>
+    <Space size='large'>
+      <Button size='mini' type='primary'>
+        Mini
+      </Button>
+      <Button size='small' type='primary'>
+        Small
+      </Button>
+      <Button size='default' type='primary'>
+        Default
+      </Button>
+      <Button size='large' type='primary'>
+        Large
+      </Button>
+    </Space>
     {/* <Tag color='red'>我是标签</Tag> */}
  
       <h1>Vite + React</h1>

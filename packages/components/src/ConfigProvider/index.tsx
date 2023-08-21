@@ -72,7 +72,7 @@ export const ConfigContext = createContext<ConfigProviderProps>({
 
 function ConfigProvider(baseProps: ConfigProviderProps) {
   const props = useMergeProps<ConfigProviderProps>(baseProps, defaultProps, componentConfig);
-  const {theme,  prefixCls, children  } = props;
+  const {theme,  prefixCls, children, rtl,  } = props;
 
   useEffect(() => {
     setTheme(theme);
@@ -92,7 +92,7 @@ function ConfigProvider(baseProps: ConfigProviderProps) {
   };
 
   useEffect(() => {
-    setConfigProviderProps({  prefixCls });
+    setConfigProviderProps({  prefixCls, rtl  });
   }, [ prefixCls]);
 
   let child = children;

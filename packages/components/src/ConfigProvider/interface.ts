@@ -14,6 +14,12 @@ export type ComponentConfig = {
  * @title ConfigProvider
  */
 export interface ConfigProviderProps {
+    /**
+   * @zh 视图的表现形式是从右开始向左结束。
+   * @en View starts from the right and ends on the left.
+   * @version 2.36.0
+   */
+    rtl?: boolean;
   /**
    * @zh 当按钮中是两个汉字时，自动在两个汉字中添加一个空格。
    * @en When there are two Chinese characters in the button, a space is automatically added between two Chinese characters.
