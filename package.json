@@ -1,6 +1,6 @@
 {
   "name": "@simao234430/yoo-components",
-  "version": "0.0.25",
+  "version": "0.0.26",
   "private": false,
   "type": "module",
   "keywords": [
@@ -45,6 +45,7 @@
     "vite-plugin-dts": "^3.5.2"
   },
   "dependencies": {
+    "@arco-design/color": "^0.4.0",
     "@rollup/plugin-typescript": "^11.1.2",
     "react": ">=16",
     "react-dom": ">=16"

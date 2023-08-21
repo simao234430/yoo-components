@@ -4,6 +4,8 @@ import type { ButtonProps } from './interface';
 import useMergeProps from '../_util/hooks/useMergeProps';
 import { ConfigContext } from '../ConfigProvider';
 import cs from '../_util/classNames';
+import './style/index'
+
 const defaultProps: ButtonProps = {
     htmlType: 'button',
     type: 'default',

@@ -8,7 +8,11 @@ function App() {
 
   return (
     <>
-  <Button style={{color:'blue'}}>Button</Button>
+      <Button type='primary'>Primary</Button>
+      <Button type='secondary'>Secondary</Button>
+      <Button type='dashed'>Dashed</Button>
+      <Button type='outline'>Outline</Button>
+      <Button type='text'>Text</Button>
     {/* <Tag color='red'>我是标签</Tag> */}
  
       <h1>Vite + React</h1>
