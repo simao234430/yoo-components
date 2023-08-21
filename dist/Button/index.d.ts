@@ -1,6 +1,7 @@
 import React from 'react';
 import type { ButtonProps } from './interface';
 import { ConfigContext } from '../ConfigProvider';
+import './style/index';
 declare const ButtonComponent: React.ForwardRefExoticComponent<Partial<{
     htmlType?: "button" | "submit" | "reset";
 } & import("./interface").BaseButtonProps & Omit<React.ButtonHTMLAttributes<any>, "type" | "onClick" | "className"> & {

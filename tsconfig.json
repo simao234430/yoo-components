@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
-    "outDir": "es",
+    "outDir": "dist",
+    "module": "ESNext",
     "jsx": "react",
-    "module": "es6",
-    "target": "es5",
+    "target": "ESNext",
     "lib": ["es5", "dom"],
     "moduleResolution": "node",
-    "declaration": true,
+    "declaration": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "skipLibCheck": true,

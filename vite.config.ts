@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-// import typescript from '@rollup/plugin-typescript'
+import typescript from '@rollup/plugin-typescript'
 import { readFileSync } from 'fs'
 import path from 'path'
 import dts from 'vite-plugin-dts';
@@ -15,19 +15,19 @@ export default defineConfig({
  
   plugins: [
  
-    react({      jsxRuntime: 'classic',}
+    react({      jsxRuntime: 'classic'}
     ),
     dts({
       insertTypesEntry: true,
     }),
-    // typescript({
-    //   target: 'es5',
-    //   rootDir: resolve('packages/components/src'),
-    //   declaration: true,
-    //   declarationDir: resolve('dist'),
-    //   exclude: resolve('node_modules/**'),
-    //   allowSyntheticDefaultImports: true,
-    // }),
+    typescript({
+      target: 'ESNext',
+      rootDir: resolve('packages/components/src'),
+      declaration: true,
+      declarationDir: resolve('dist'),
+      exclude: resolve('node_modules/**'),
+      allowSyntheticDefaultImports: true,
+    }),
 
   ],
   css: {
@@ -40,7 +40,7 @@ export default defineConfig({
     },
   },
   build: {
-    sourcemap: true,
+    // sourcemap: true,
     // 输出文件夹
     outDir: 'dist',
     lib: {
@@ -63,17 +63,16 @@ export default defineConfig({
     //   formats: ['es', 'umd'],
     // },
 
-    // rollupOptions: {
-    //   //排除不相关的依赖
-    //   external: ['react', 'react-dom'],
-    //   output: {
-    //     // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
-    //     globals: {
-    //       react: 'react',
-    //       'react-dom': 'react-dom',
-    //     },
-    //   },
-
-    // },
+    rollupOptions: {
+      //排除不相关的依赖
+      external: ['react', 'react-dom'],
+      output: {
+        // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
+        globals: {
+          react: 'react',
+          'react-dom': 'react-dom',
+        },
+      },
+    },
   },
 })

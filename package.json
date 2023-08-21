@@ -1,12 +1,15 @@
 {
   "name": "@simao234430/yoo-components",
-  "version": "0.0.26",
+  "version": "0.0.32",
   "private": false,
   "type": "module",
   "keywords": [
     "typescript",
     "react",
     "components"
+  ],
+  "files": [
+    "dist"
   ],
   "main": "./dist/yoo-components.es.js",
   "module": "./dist/yoo-components.es.js",
@@ -22,8 +25,8 @@
   "license": "ISC",
   "devDependencies": {
     "@types/node": "17.0.23",
-    "@types/react": "^16.7.20",
-    "@types/react-dom": "^16.0.11",
+    "@types/react": "^16.8.0",
+    "@types/react-dom": "^16.8.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "6.0.0",
     "@vitejs/plugin-react": "^4.0.3",
@@ -47,7 +50,11 @@
   "dependencies": {
     "@arco-design/color": "^0.4.0",
     "@rollup/plugin-typescript": "^11.1.2",
-    "react": ">=16",
-    "react-dom": ">=16"
-  }
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+ }
 }
