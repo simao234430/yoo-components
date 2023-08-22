@@ -13,6 +13,7 @@ dist-ssr
 /dist
 /es
 /lib
+/icon
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

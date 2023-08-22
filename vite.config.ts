@@ -28,6 +28,7 @@ export default defineConfig({
       exclude: resolve('node_modules/**'),
       allowSyntheticDefaultImports: true,
     }),
+ 
 
   ],
   css: {
@@ -44,7 +45,7 @@ export default defineConfig({
     // 输出文件夹
     outDir: 'dist',
     lib: {
-      entry: resolve('packages/components/src/index.ts'),
+      entry: [resolve('packages/components/src/index.ts')],
       name: "yoo-components",
       // 文件名称, 打包结果举例: suemor.cjs
       fileName: (format) => `yoo-components.${format}.js`,
