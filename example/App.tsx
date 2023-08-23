@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import { Button, Space ,ButtonProps } from '../packages/components/src'
+import { Trigger, Button, Tooltip,Input,  Typography,Space }  from '../packages/components/src'
 import React from 'react'
 import IconPlus from '../Icon/react-icon/IconPlus';
 import IconLeft from '../Icon/react-icon/IconLeft';
@@ -9,204 +9,46 @@ import IconStar from '../Icon/react-icon/IconStar';
 import IconMessage from '../Icon/react-icon/IconMessage';
 import IconSettings from '../Icon/react-icon/IconSettings';
 import IconDelete from '../Icon/react-icon/IconDelete';
+const InputSearch = Input.Search;
+function Element(props) {
+  return (
+    <Typography.Text {...props} style={{ marginRight: 20 }}>
+      Hover me
+    </Typography.Text>
+  );
+}
 
+function Popup() {
+  return (
+    <div className='demo-trigger-popup' style={{ width: 300 }}>
+      <Tooltip content='123' defaultPopupVisible>
+        <span>123123</span>
+      </Tooltip>
+    
+    </div>
+  );
+}
 const ButtonGroup = Button.Group;
 function App() {
   const [count, setCount] = useState(0)
-  const [loading1, setLoading1] = useState(false);
-  const [loading2, setLoading2] = useState(false);
-  const [loading3, setLoading3] = useState(false);
-
-  function onClickBtn1() {
-    setLoading1(true);
-    setTimeout(() => {
-      setLoading1(false);
-    }, 4000);
-  }
-
-  function onClickBtn2() {
-    setLoading2(true);
-    setTimeout(() => {
-      setLoading2(false);
-    }, 4000);
-  }
-
-  function onClickBtn3() {
-    setLoading3(true);
-    setTimeout(() => {
-      setLoading3(false);
-    }, 4000);
-  }
-  return (
-    <>
-      <Space
-      style={{
-        width: 360,
-        border: '1px solid var(--color-border)',
-        borderRadius: 4,
-        padding: 20,
-      }}
-      direction='vertical'
-      size='large'
-    >
-      <Button type='primary' long>
-        Primary
-      </Button>
-      <Button type='secondary' long>
-        Secondary
-      </Button>
-      <Button type='dashed' long>
-        Dashed
-      </Button>
-      <Button type='default' long>
-        Default
-      </Button>
-      <Button type='text' long>
-        Text
-      </Button>
+  return(
+  <>
+  <Space style={{ width: 1000, overflow: 'auto' }} size={40}>
+      <Trigger
+        popup={() => <Popup />}
+        mouseEnterDelay={400}
+        mouseLeaveDelay={400}
+        position='bottom'
+      >
+        <Element />
+      </Trigger>
+      <Trigger  popup={() => <Popup />} trigger='click' position='bottom' classNames='zoomInTop'>
+        <Button>Click me</Button>
+      </Trigger>
+      <Trigger popup={() => <Popup />} trigger='focus' position='top' classNames='zoomInBottom'>
+        <Input style={{ width: 200 }} placeholder='Focus on me' />
+      </Trigger>
     </Space>
-    <Space size='large'>
-      <Button type='primary' icon={<IconPlus/>} />
-      <Button type='primary' icon={<IconDelete />}>
-        Delete
-      </Button>
-    </Space>
-    <Space size='large'>
-      <Button type='primary' icon={<IconPlus />} />
-      <Button shape='circle' type='primary' icon={<IconPlus />} />
-      <Button shape='round' type='primary'>
-        Primary
-      </Button>
-      <Button type='primary'>Primary</Button>
-    </Space>
-
-    <div
-      style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(4, 100px)',
-        gridRowGap: 24,
-        gridColumnGap: 24,
-      }}
-    >
-      <Button type='primary' status='warning'>
-        Warning
-      </Button>
-      <Button status='warning'>Warning</Button>
-      <Button type='outline' status='warning'>
-        Warning
-      </Button>
-      <Button type='text' status='warning'>
-        Warning
-      </Button>
-
-      <Button type='primary' status='danger'>
-        Danger
-      </Button>
-      <Button status='danger'>Danger</Button>
-      <Button type='outline' status='danger'>
-        Danger
-      </Button>
-      <Button type='text' status='danger'>
-        Danger
-      </Button>
-
-      <Button type='primary' status='success'>
-        Success
-      </Button>
-      <Button status='success'>Success</Button>
-      <Button type='outline' status='success'>
-        Success
-      </Button>
-      <Button type='text' status='success'>
-        Success
-      </Button>
-    </div>
-
-    <div>
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 100px)',
-          rowGap: 24,
-          columnGap: 24,
-          marginLeft: 24,
-        }}
-      >
-        <Button type='primary' loading>
-          Loading
-        </Button>
-        <Button type='secondary' loading>
-          Loading
-        </Button>
-        <Button type='dashed' loading>
-          Loading
-        </Button>
-        <Button type='primary' shape='circle' loading />
-        <Button type='secondary' shape='circle' loading />
-        <Button type='dashed' shape='circle' loading />
-      </div>
-      <Button
-        type='primary'
-        loading={loading1}
-        onClick={onClickBtn1}
-        style={{ margin: 24 }}
-      >
-        Click Me
-      </Button>
-      <Button
-        type='primary'
-        loading={loading2}
-        onClick={onClickBtn2}
-        style={{ margin: 24 }}
-      >
-        {!loading2 && <IconPlus />}Click Me
-      </Button>
- 
-      <Button
-        type='primary'
-        loadingFixedWidth
-        loading={loading3}
-        onClick={onClickBtn3}
-        style={{ margin: 24 }}
-      >
-        Search
-      </Button>
-    </div>
-
-    <Space size='large'>
-        <ButtonGroup>
-          <Button
-            type='primary'
-            icon={<IconLeft />}
-            shape='round'
-            style={{ padding: '0 8px' }}
-          >
-            Prev
-          </Button>
-          <Button
-            type='primary'
-            shape='round'
-            style={{ padding: '0 8px' }}
-          >
-            Next
-            <IconRight />
-          </Button>
-        </ButtonGroup>
-        <ButtonGroup>
-          <Button type='primary' icon={<IconStar />} />
-          <Button type='primary' icon={<IconMessage />} />
-          <Button type='primary' icon={<IconSettings />} />
-        </ButtonGroup>
-        <ButtonGroup>
-          <Button type='primary' icon={<IconStar />}>
-            Favorite
-          </Button>
-          <Button type='primary' icon={<IconSettings />}>
-            Setting
-          </Button>
-        </ButtonGroup>
-      </Space>
-    {/* <Tag color='red'>我是标签</Tag> */}
  
       <h1>Vite + React</h1>
       <div className="card">

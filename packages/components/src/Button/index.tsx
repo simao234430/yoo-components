@@ -5,7 +5,7 @@ import useMergeProps from '../_util/hooks/useMergeProps';
 import { ConfigContext } from '../ConfigProvider';
 import cs from '../_util/classNames';
 import Group from './group';
-import IconLoading from '../../Icon/react-icon/IconLoading';
+// import IconLoading from '../../../../icon/react-icon/IconLoading';
 import './style/index'
 
 
@@ -67,7 +67,12 @@ function Button(baseProps: ButtonProps,ref:any) {
     ...rest
   } = props;
 
-  const iconNode = loading ? <IconLoading /> : icon;
+  const svgLoad =  () => {
+    return(
+    <svg fill="none" stroke="currentColor" stroke-width="4" viewBox="0 0 48 48" aria-hidden="true" focusable="false" className="arco-icon arco-icon-loading"><path d="M42 24c0 9.941-8.059 18-18 18S6 33.941 6 24 14.059 6 24 6"></path></svg>
+    )
+  }
+  const iconNode = loading ? svgLoad : icon;
 
   const [isTwoCNChar, setIsTwoCNChar] = useState(false);
   const innerButtonRef = useRef();

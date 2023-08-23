@@ -5,6 +5,7 @@ import { setConfigProviderProps } from '../Modal/config';
 import useMergeProps from '../_util/hooks/useMergeProps';
 import { lighten } from './util';
 import { isObject } from '../_util/is';
+import defaultLocale from '../locale/default';
 
 const colorList = {
   primaryColor: {
@@ -54,9 +55,9 @@ function setTheme(theme: ConfigProviderProps['theme']) {
 }
  
 const defaultProps: ConfigProviderProps = {
- 
+  locale: defaultLocale,
   prefixCls: 'arco',
- 
+  getPopupContainer: () => document.body,
   size: 'default',
  
  
