@@ -1,3 +1,4 @@
+import { Dayjs } from 'dayjs';
 
 const opt = Object.prototype.toString;
 
@@ -29,7 +30,20 @@ export function isBlob(obj: any): obj is Blob {
   return opt.call(obj) === '[object Blob]';
 }
 
+function isHex(color) {
+  return /^#[a-fA-F0-9]{3}$|#[a-fA-F0-9]{6}$/.test(color);
+}
 
+function isRgb(color) {
+  return /^rgb\((\s*\d+\s*,?){3}\)$/.test(color);
+}
+
+function isRgba(color) {
+  return /^rgba\((\s*\d+\s*,\s*){3}\s*\d(\.\d+)?\s*\)$/.test(color);
+}
+export function isColor(color: any): boolean {
+  return isHex(color) || isRgb(color) || isRgba(color);
+}
 export function isUndefined(obj: any): obj is undefined {
   return obj === undefined;
 }
@@ -58,7 +72,20 @@ export function isWindow(el: any): el is Window {
   return el === window;
 }
 
- 
+export function isDayjs(time): time is Dayjs {
+  // dayjs.isDayjs 在实际应用场景，比如多个版本的 dayjs 会失效
+  return (
+    isObject(time) &&
+    (('$y' in time &&
+      '$M' in time &&
+      '$D' in time &&
+      '$d' in time &&
+      '$H' in time &&
+      '$m' in time &&
+      '$s' in time) ||
+      time._isAMomentObject) // 兼容 moment 的验证
+  );
+}
 
 export function isBoolean(value: any): value is Boolean {
   return typeof value === 'boolean';

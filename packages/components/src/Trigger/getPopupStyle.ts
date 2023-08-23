@@ -267,7 +267,9 @@ export default (
 
   const horizontalOffset = popupAlign.horizontalOffset || 0;
   const verticalOffset = popupAlign.verticalOffset || 0;
+
   switch (props.position) {
+ 
     case 'top': {
       style.top = top - content.clientHeight - alignTop;
       style.left = left + width / 2 - content.clientWidth / 2;
@@ -291,8 +293,8 @@ export default (
       style.left = left + width - content.clientWidth;
       autoPosition('top') && (realPosition = 'br');
       style.left += horizontalOffset;
-      arrowLeft = left - Number(style.left) + Math.max(width / 2, width - 50);
-      arrowStyle.left = getInsideValue(12, content.clientWidth - 12, arrowLeft);
+      const tr_arrowLeft = left - Number(style.left) + Math.max(width / 2, width - 50);
+      arrowStyle.left = getInsideValue(12, content.clientWidth - 12, tr_arrowLeft);
       break;
     case 'bottom': {
       style.top = height + top + alignBottom;
@@ -309,16 +311,16 @@ export default (
       style.left = left;
       autoPosition('bottom') && (realPosition = 'tl');
       style.left += horizontalOffset;
-      arrowLeft = left - Number(style.left) + Math.min(width / 2, 50);
-      arrowStyle.left = getInsideValue(12, content.clientWidth - 12, arrowLeft);
+      let bl_arrowLeft = left - Number(style.left) + Math.min(width / 2, 50);
+      arrowStyle.left = getInsideValue(12, content.clientWidth - 12, bl_arrowLeft);
       break;
     case 'br':
       style.top = height + top + alignBottom;
       style.left = left + width - content.clientWidth;
       autoPosition('bottom') && (realPosition = 'tr');
       style.left += horizontalOffset;
-      arrowLeft = left - Number(style.left) + Math.max(width / 2, width - 50);
-      arrowStyle.left = getInsideValue(12, content.clientWidth - 12, arrowLeft);
+      const br_arrowLeft = left - Number(style.left) + Math.max(width / 2, width - 50);
+      arrowStyle.left = getInsideValue(12, content.clientWidth - 12, br_arrowLeft);
       break;
     case 'left': {
       style.top = top + height / 2 - content.clientHeight / 2;
@@ -344,8 +346,8 @@ export default (
       autoPosition('left') && (realPosition = 'rb');
       style.top += verticalOffset;
 
-      arrowTop = top - Number(style.top) + Math.max(height / 2, height - 50);
-      arrowStyle.top = getInsideValue(12, content.clientHeight - 12, arrowTop);
+      const lb_arrowTop = top - Number(style.top) + Math.max(height / 2, height - 50);
+      arrowStyle.top = getInsideValue(12, content.clientHeight - 12, lb_arrowTop);
       break;
     case 'right': {
       style.top = top + height / 2 - content.clientHeight / 2;
@@ -363,8 +365,8 @@ export default (
       autoPosition('right') && (realPosition = 'lt');
       style.top += verticalOffset;
 
-      arrowTop = top - Number(style.top) + Math.min(height / 2, 50);
-      arrowStyle.top = getInsideValue(12, content.clientHeight - 12, arrowTop);
+      const rt_arrowTop = top - Number(style.top) + Math.min(height / 2, 50);
+      arrowStyle.top = getInsideValue(12, content.clientHeight - 12, rt_arrowTop);
       break;
     case 'rb':
       style.top = top + height - content.clientHeight;
@@ -372,8 +374,8 @@ export default (
       autoPosition('right') && (realPosition = 'lb');
       style.top += verticalOffset;
 
-      arrowTop = top - Number(style.top) + Math.max(height / 2, height - 50);
-      arrowStyle.top = getInsideValue(12, content.clientHeight - 12, arrowTop);
+      const rb_arrowTop = top - Number(style.top) + Math.max(height / 2, height - 50);
+      arrowStyle.top = getInsideValue(12, content.clientHeight - 12, rb_arrowTop);
       break;
     default:
       break;

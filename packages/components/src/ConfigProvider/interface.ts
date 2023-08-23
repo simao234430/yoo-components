@@ -1,34 +1,34 @@
 import { ReactNode } from 'react';
 import { Locale } from '../locale/interface'; 
-// import { AffixProps } from '../Affix/interface';
-// import { AlertProps } from '../Alert/interface';
-// import { AnchorLinkProps, AnchorProps } from '../Anchor/interface';
-// import { AutoCompleteProps } from '../AutoComplete/interface';
-// import { AvatarProps, AvatarGroupProps } from '../Avatar/interface';
-// import { BackTopProps } from '../BackTop/interface';
-// import { BadgeProps } from '../Badge/interface';
+import { AffixProps } from '../Affix/interface';
+import { AlertProps } from '../Alert/interface';
+import { AnchorLinkProps, AnchorProps } from '../Anchor/interface';
+import { AutoCompleteProps } from '../AutoComplete/interface';
+import { AvatarProps, AvatarGroupProps } from '../Avatar/interface';
+import { BackTopProps } from '../BackTop/interface';
+import { BadgeProps } from '../Badge/interface';
 // import { BreadcrumbProps } from '../Breadcrumb/interface';
 import { ButtonProps } from '../Button/interface';
-// import { CalendarProps } from '../Calendar/interface';
-// import { CardProps } from '../Card/interface';
-// import { CarouselProps } from '../Carousel/interface';
-// import { CascaderProps } from '../Cascader/interface';
-// import { CheckboxProps } from '../Checkbox/interface';
-// import { CollapseProps } from '../Collapse/interface';
-// import { CommentProps } from '../Comment/interface';
+import { CalendarProps } from '../Calendar/interface';
+import { CardProps } from '../Card/interface';
+import { CarouselProps } from '../Carousel/interface';
+import { CascaderProps } from '../Cascader/interface';
+import { CheckboxProps } from '../Checkbox/interface';
+import { CollapseProps } from '../Collapse/interface';
+import { CommentProps } from '../Comment/interface';
 // import { PickerProps as DatePickerCommonProps } from '../DatePicker/interface';
 // import { DescriptionsProps } from '../Descriptions/interface';
-// import { DividerProps } from '../Divider/interface';
+import { DividerProps } from '../Divider/interface';
 // import { DrawerProps } from '../Drawer/interface';
 // import { DropdownProps, DropdownButtonProps } from '../Dropdown/interface';
-// import { EmptyProps } from '../Empty/interface';
+import { EmptyProps } from '../Empty/interface';
 // import { FormProps } from '../Form/interface';
-// import { RowProps, ColProps, GridProps, GridItemProps } from '../Grid/interface';
+import { RowProps, ColProps, GridProps, GridItemProps } from '../Grid/interface';
 // import { ImageProps } from '../Image/interface';
 import { InputProps } from '../Input/interface';
 // import { InputNumberProps } from '../InputNumber/interface';
-// import { InputTagProps } from '../InputTag/interface';
-// import { LayoutProps } from '../Layout/interface';
+import { InputTagProps } from '../InputTag/interface';
+import { LayoutProps } from '../Layout/interface';
 import { LinkProps } from '../Link/interface';
 // import { ListItemProps, ListProps } from '../List/interface';
 // import { MentionsProps } from '../Mentions/interface';
@@ -38,21 +38,21 @@ import { LinkProps } from '../Link/interface';
 // import { PopconfirmProps } from '../Popconfirm/interface';
 import { PopoverProps } from '../Popover/interface';
 // import { ProgressProps } from '../Progress/interface';
-// import { RadioProps, RadioGroupProps } from '../Radio/interface';
+import { RadioProps, RadioGroupProps } from '../Radio/interface';
 // import { RateProps } from '../Rate/interface';
-// import { ResizeBoxProps } from '../ResizeBox/interface';
+import { ResizeBoxProps } from '../ResizeBox/interface';
 // import { ResultProps } from '../Result/interface';
-// import { SelectProps } from '../Select/interface';
+import { SelectProps } from '../Select/interface';
 // import { SkeletonProps } from '../Skeleton/interface';
 // import { SliderProps } from '../Slider/interface';
-// import { SpaceProps } from '../Space/interface';
-// import { SpinProps } from '../Spin/interface';
+import { SpaceProps } from '../Space/interface';
+import { SpinProps } from '../Spin/interface';
 // import { StatisticProps } from '../Statistic/interface';
 // import { StepsProps } from '../Steps/interface';
-// import { SwitchProps } from '../Switch/interface';
+import { SwitchProps } from '../Switch/interface';
 // import { TableProps } from '../Table/interface';
 // import { TabsProps } from '../Tabs/interface';
-// import { TagProps } from '../Tag/interface';
+import { TagProps } from '../Tag/interface';
 // import { TimelineProps, TimelineItemProps } from '../Timeline/interface';
 // import { PickerProps as TimePickerCommonProps } from '../TimePicker/interface';
 import { TooltipProps } from '../Tooltip/interface';
@@ -64,24 +64,24 @@ import { TriggerProps } from '../Trigger/interface';
 export type ThemeConfig = Record<string, any>;
 
 export type ComponentConfig = {
-  // Affix?: AffixProps;
-  // Alert?: AlertProps;
-  // AutoComplete?: AutoCompleteProps;
-  // Avatar?: AvatarProps;
-  // 'Avatar.Group'?: AvatarGroupProps;
-  // Anchor?: AnchorProps;
-  // 'Anchor.Link'?: AnchorLinkProps;
-  // BackTop?: BackTopProps;
-  // Badge?: BadgeProps;
+  Affix?: AffixProps;
+  Alert?: AlertProps;
+  AutoComplete?: AutoCompleteProps;
+  Avatar?: AvatarProps;
+  'Avatar.Group'?: AvatarGroupProps;
+  Anchor?: AnchorProps;
+  'Anchor.Link'?: AnchorLinkProps;
+  BackTop?: BackTopProps;
+  Badge?: BadgeProps;
   // Breadcrumb?: BreadcrumbProps;
   Button?: ButtonProps;
-  // Calendar?: CalendarProps;
-  // Card?: CardProps;
-  // Carousel?: CarouselProps;
-  // Cascader?: CascaderProps;
-  // Checkbox?: CheckboxProps;
-  // Collapse?: CollapseProps;
-  // Comment?: CommentProps;
+  Calendar?: CalendarProps;
+  Card?: CardProps;
+  Carousel?: CarouselProps;
+  Cascader?: CascaderProps;
+  Checkbox?: CheckboxProps;
+  Collapse?: CollapseProps;
+  Comment?: CommentProps;
   // DatePicker?: Omit<
   //   DatePickerCommonProps,
   //   | 'placeholder'
@@ -93,21 +93,21 @@ export type ComponentConfig = {
   //   | 'onPickerValueChange'
   // >;
   // Descriptions?: DescriptionsProps;
-  // Divider?: DividerProps;
+  Divider?: DividerProps;
   // Drawer?: DrawerProps;
   // Dropdown?: DropdownProps;
   // 'Dropdown.Button'?: DropdownButtonProps;
-  // Empty?: EmptyProps;
+  Empty?: EmptyProps;
   // Form?: FormProps;
-  // 'Grid.Row'?: RowProps;
-  // 'Grid.Col'?: ColProps;
-  // Grid?: GridProps;
-  // 'Grid.GridItem'?: GridItemProps;
+  'Grid.Row'?: RowProps;
+  'Grid.Col'?: ColProps;
+  Grid?: GridProps;
+  'Grid.GridItem'?: GridItemProps;
   // Image?: ImageProps;
   Input?: InputProps;
   // InputNumber?: InputNumberProps;
-  // InputTag?: InputTagProps;
-  // Layout?: LayoutProps;
+  InputTag?: InputTagProps;
+  Layout?: LayoutProps;
   Link?: LinkProps;
   // List?: ListProps;
   // 'List.Item'?: ListItemProps;
@@ -119,24 +119,24 @@ export type ComponentConfig = {
   // Popconfirm?: PopconfirmProps;
   Popover?: PopoverProps;
   // Progress?: ProgressProps;
-  // Radio?: RadioProps;
-  // 'Radio.Group'?: RadioGroupProps;
+  Radio?: RadioProps;
+  'Radio.Group'?: RadioGroupProps;
   // Rate?: RateProps;
-  // ResizeBox?: ResizeBoxProps;
+  ResizeBox?: ResizeBoxProps;
   // Result?: ResultProps;
-  // Select?: SelectProps;
+  Select?: SelectProps;
   // Skeleton?: SkeletonProps;
   // Slider?: SliderProps;
-  // Space?: SpaceProps;
-  // Spin?: SpinProps;
+  Space?: SpaceProps;
+  Spin?: SpinProps;
   // Statistic?: StatisticProps;
   // Steps?: StepsProps;
-  // Switch?: SwitchProps;
+  Switch?: SwitchProps;
   // Table?: TableProps;
   // Tabs?: TabsProps;
   // TreeProps?: TreeProps;
   TriggerProps?: TriggerProps;
-  // Tag?: TagProps;
+  Tag?: TagProps;
   // Timeline?: TimelineProps;
   // 'Timeline.Item'?: TimelineItemProps;
   // TimePicker?: TimePickerCommonProps;
@@ -175,7 +175,12 @@ export interface ConfigProviderProps {
    * @version 2.23.0
    */
   componentConfig?: ComponentConfig;
- 
+   /**
+   * @zh 全局配置组件内的空组件。
+   * @en Empty component in component.
+   * @version 2.10.0
+   */
+   renderEmpty?: (componentName?: string) => ReactNode;
   /**
    * @zh 主题配置
    * @en Theme Configuration
@@ -193,6 +198,12 @@ export interface ConfigProviderProps {
    * @defaultValue arco
    */
   prefixCls?: string;
+
+    /**
+   * @zh 全局的加载中图标，作用于所有组件。
+   * @en Global loading icon.
+   */
+  loadingElement?: ReactNode;
   getPrefixCls?: (componentName: string, customPrefix?: string) => string;
      /**
    * @zh 全局弹出框挂载的父级节点。

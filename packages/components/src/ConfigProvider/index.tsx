@@ -6,6 +6,8 @@ import useMergeProps from '../_util/hooks/useMergeProps';
 import { lighten } from './util';
 import { isObject } from '../_util/is';
 import defaultLocale from '../locale/default';
+import Empty from '../Empty';
+import { IconContext } from '../../../../icon/react-icon/context';
 
 const colorList = {
   primaryColor: {
@@ -53,14 +55,24 @@ function setTheme(theme: ConfigProviderProps['theme']) {
     });
   }
 }
- 
+
+function renderEmpty(componentName?: string) {
+  switch (componentName) {
+    default:
+      return <Empty />;
+  }
+}
+
 const defaultProps: ConfigProviderProps = {
   locale: defaultLocale,
   prefixCls: 'arco',
   getPopupContainer: () => document.body,
   size: 'default',
- 
- 
+  renderEmpty,
+  // focusLock: {
+  //   modal: { autoFocus: true },
+  //   drawer: { autoFocus: true },
+  // },
 };
 
 const componentConfig = {};
@@ -73,15 +85,18 @@ export const ConfigContext = createContext<ConfigProviderProps>({
 
 function ConfigProvider(baseProps: ConfigProviderProps) {
   const props = useMergeProps<ConfigProviderProps>(baseProps, defaultProps, componentConfig);
-  const {theme,  prefixCls, children, rtl,  } = props;
+  const { theme, prefixCls, children, locale, rtl} = props;
 
   useEffect(() => {
     setTheme(theme);
   }, [theme]);
 
   useEffect(() => {
- 
-  }, [prefixCls ]);
+    if (false) {
+      // Message.config({ prefixCls, rtl });
+      // Notification.config({ prefixCls, rtl });
+    }
+  }, [prefixCls, rtl,]);
 
   function getPrefixCls(componentName: string, customPrefix?: string) {
     return `${customPrefix || prefixCls}-${componentName}`;
@@ -93,11 +108,15 @@ function ConfigProvider(baseProps: ConfigProviderProps) {
   };
 
   useEffect(() => {
-    setConfigProviderProps({  prefixCls, rtl  });
-  }, [ prefixCls]);
+    setConfigProviderProps({ locale, prefixCls, rtl });
+  }, [locale, prefixCls]);
 
   let child = children;
- 
+
+  if (prefixCls && prefixCls !== 'arco') {
+    child = <IconContext.Provider value={{ prefixCls }}>{children}</IconContext.Provider>;
+  }
+
   return <ConfigContext.Provider value={config}>{child}</ConfigContext.Provider>;
 }
 
@@ -109,4 +128,4 @@ export default ConfigProvider;
 
 export const ConfigConsumer = ConfigContext.Consumer;
 
-export { ConfigProviderProps } 
+export { ConfigProviderProps };
