@@ -17,7 +17,7 @@ import { CascaderProps } from '../Cascader/interface';
 import { CheckboxProps } from '../Checkbox/interface';
 import { CollapseProps } from '../Collapse/interface';
 import { CommentProps } from '../Comment/interface';
-// import { PickerProps as DatePickerCommonProps } from '../DatePicker/interface';
+import { PickerProps as DatePickerCommonProps } from '../DatePicker/interface'
 import { DescriptionsProps } from '../Descriptions/interface';
 import { DividerProps } from '../Divider/interface';
 import { DrawerProps } from '../Drawer/interface';
@@ -32,37 +32,39 @@ import { InputTagProps } from '../InputTag/interface';
 import { LayoutProps } from '../Layout/interface';
 import { LinkProps } from '../Link/interface';
 import { ListItemProps, ListProps } from '../List/interface';
-// import { MentionsProps } from '../Mentions/interface';
+import { MentionsProps } from '../Mentions/interface';
 import { MenuProps } from '../Menu/interface';
-// import { ModalProps } from '../Modal/interface';
-// import { PageHeaderProps } from '../PageHeader/interface';
-// import { PopconfirmProps } from '../Popconfirm/interface';
+import { ModalProps } from '../Modal/interface';
+import { PageHeaderProps } from '../PageHeader/interface';
+import { PopconfirmProps } from '../Popconfirm/interface';
 import { PopoverProps } from '../Popover/interface';
-// import { ProgressProps } from '../Progress/interface';
+import { ProgressProps } from '../Progress/interface';
 import { RadioProps, RadioGroupProps } from '../Radio/interface';
-// import { RateProps } from '../Rate/interface';
+import { RateProps } from '../Rate/interface';
 import { ResizeBoxProps } from '../ResizeBox/interface';
-// import { ResultProps } from '../Result/interface';
+import { ResultProps } from '../Result/interface';
 import { SelectProps } from '../Select/interface';
-// import { SkeletonProps } from '../Skeleton/interface';
-// import { SliderProps } from '../Slider/interface';
+import { SkeletonProps } from '../Skeleton/interface';
+import { SliderProps } from '../Slider/interface';
 import { SpaceProps } from '../Space/interface';
 import { SpinProps } from '../Spin/interface';
-// import { StatisticProps } from '../Statistic/interface';
-// import { StepsProps } from '../Steps/interface';
+import { StatisticProps } from '../Statistic/interface';
+import { StepsProps } from '../Steps/interface';
 import { SwitchProps } from '../Switch/interface';
-// import { TableProps } from '../Table/interface';
-// import { TabsProps } from '../Tabs/interface';
+import { TableProps } from '../Table/interface';
+import { TabsProps } from '../Tabs/interface';
 import { TagProps } from '../Tag/interface';
-// import { TimelineProps, TimelineItemProps } from '../Timeline/interface';
-// import { PickerProps as TimePickerCommonProps } from '../TimePicker/interface';
+import { TimelineProps, TimelineItemProps } from '../Timeline/interface';
+import { PickerProps as TimePickerCommonProps } from '../TimePicker/interface';
 import { TooltipProps } from '../Tooltip/interface';
-// import { TransferProps } from '../Transfer/interface';
-// import { TreeProps } from '../Tree/interface';
-// import { TreeSelectProps } from '../TreeSelect/interface';
+import { TransferProps } from '../Transfer/interface';
+import { TreeProps } from '../Tree/interface';
+import { TreeSelectProps } from '../TreeSelect/interface';
 import { TriggerProps } from '../Trigger/interface';
+import { UploadProps } from '../Upload/interface';
 
 export type ThemeConfig = Record<string, any>;
+
 
 export type ComponentConfig = {
   Affix?: AffixProps;
@@ -83,16 +85,16 @@ export type ComponentConfig = {
   Checkbox?: CheckboxProps;
   Collapse?: CollapseProps;
   Comment?: CommentProps;
-  // DatePicker?: Omit<
-  //   DatePickerCommonProps,
-  //   | 'placeholder'
-  //   | 'onChange'
-  //   | 'onSelect'
-  //   | 'onOk'
-  //   | 'defaultPickerValue'
-  //   | 'pickerValue'
-  //   | 'onPickerValueChange'
-  // >;
+  DatePicker?: Omit<
+    DatePickerCommonProps,
+    | 'placeholder'
+    | 'onChange'
+    | 'onSelect'
+    | 'onOk'
+    | 'defaultPickerValue'
+    | 'pickerValue'
+    | 'onPickerValueChange'
+  >;
   Descriptions?: DescriptionsProps;
   Divider?: DividerProps;
   Drawer?: DrawerProps;
@@ -112,41 +114,41 @@ export type ComponentConfig = {
   Link?: LinkProps;
   List?: ListProps;
   'List.Item'?: ListItemProps;
-  // Mentions?: MentionsProps;
+  Mentions?: MentionsProps;
   Menu?: MenuProps;
-  // Modal?: ModalProps;
-  // PageHeader?: PageHeaderProps;
+  Modal?: ModalProps;
+  PageHeader?: PageHeaderProps;
   Pagination?: PaginationProps;
-  // Popconfirm?: PopconfirmProps;
+  Popconfirm?: PopconfirmProps;
   Popover?: PopoverProps;
-  // Progress?: ProgressProps;
+  Progress?: ProgressProps;
   Radio?: RadioProps;
   'Radio.Group'?: RadioGroupProps;
-  // Rate?: RateProps;
+  Rate?: RateProps;
   ResizeBox?: ResizeBoxProps;
-  // Result?: ResultProps;
+  Result?: ResultProps;
   Select?: SelectProps;
-  // Skeleton?: SkeletonProps;
-  // Slider?: SliderProps;
+  Skeleton?: SkeletonProps;
+  Slider?: SliderProps;
   Space?: SpaceProps;
   Spin?: SpinProps;
-  // Statistic?: StatisticProps;
-  // Steps?: StepsProps;
+  Statistic?: StatisticProps;
+  Steps?: StepsProps;
   Switch?: SwitchProps;
-  // Table?: TableProps;
-  // Tabs?: TabsProps;
-  // TreeProps?: TreeProps;
+  Table?: TableProps;
+  Tabs?: TabsProps;
+  TreeProps?: TreeProps;
   TriggerProps?: TriggerProps;
   Tag?: TagProps;
-  // Timeline?: TimelineProps;
-  // 'Timeline.Item'?: TimelineItemProps;
-  // TimePicker?: TimePickerCommonProps;
+  Timeline?: TimelineProps;
+  'Timeline.Item'?: TimelineItemProps;
+  TimePicker?: TimePickerCommonProps;
   Tooltip?: TooltipProps;
-  // Transfer?: TransferProps;
-  // Tree?: TreeProps;
-  // TreeSelect?: TreeSelectProps;
+  Transfer?: TransferProps;
+  Tree?: TreeProps;
+  TreeSelect?: TreeSelectProps;
   Trigger?: TriggerProps;
-  // Upload?: UploadProps;
+  Upload?: UploadProps;
 };
 
 /**
@@ -222,6 +224,12 @@ export interface ConfigProviderProps {
     modal?: boolean | { autoFocus?: boolean };
     drawer?: boolean | { autoFocus?: boolean };
   };
+  /**
+   * @zh Table 全局的分页配置。
+   * @en Table Global pagination configuration.
+   * @version 2.6.0
+   */
+  tablePagination?: PaginationProps;
   zIndex?: number;
   children?: ReactNode;
 }
