@@ -1,13 +1,12 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   CSSProperties,
   HTMLProps,
   ReactNode,
   AnchorHTMLAttributes,
   ButtonHTMLAttributes,
-} from 'react'
+} from 'react';
 
-export type BaseButtonProps = {
+export interface BaseButtonProps {
   style?: CSSProperties;
   className?: string | string[];
   children?: ReactNode;
@@ -89,12 +88,13 @@ export type BaseButtonProps = {
    */
   onClick?: (e: Event) => void;
 }
+
 export type AnchorButtonProps = {
-  href: string
-  target?: string
-  anchorProps?: HTMLProps<HTMLAnchorElement>
+  href: string;
+  target?: string;
+  anchorProps?: HTMLProps<HTMLAnchorElement>;
 } & BaseButtonProps &
-  Omit<AnchorHTMLAttributes<any>, 'type' | 'onClick' | 'className'>
+  Omit<AnchorHTMLAttributes<any>, 'type' | 'onClick' | 'className'>;
 
 export type FinalButtonProps = {
   /**
@@ -102,14 +102,14 @@ export type FinalButtonProps = {
    * @en html button type
    * @defaultValue button
    */
-  htmlType?: 'button' | 'submit' | 'reset'
+  htmlType?: 'button' | 'submit' | 'reset';
 } & BaseButtonProps &
-  Omit<ButtonHTMLAttributes<any>, 'type' | 'onClick' | 'className'>
+  Omit<ButtonHTMLAttributes<any>, 'type' | 'onClick' | 'className'>;
 
 /**
  * @title Button
  */
-export type ButtonProps = Partial<FinalButtonProps & AnchorButtonProps>
+export type ButtonProps = Partial<FinalButtonProps & AnchorButtonProps>;
 
 export interface ButtonGroupProps {
   style?: CSSProperties;

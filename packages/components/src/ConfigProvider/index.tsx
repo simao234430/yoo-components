@@ -69,10 +69,10 @@ const defaultProps: ConfigProviderProps = {
   getPopupContainer: () => document.body,
   size: 'default',
   renderEmpty,
-  // focusLock: {
-  //   modal: { autoFocus: true },
-  //   drawer: { autoFocus: true },
-  // },
+  focusLock: {
+    modal: { autoFocus: true },
+    drawer: { autoFocus: true },
+  },
 };
 
 const componentConfig = {};
@@ -85,7 +85,7 @@ export const ConfigContext = createContext<ConfigProviderProps>({
 
 function ConfigProvider(baseProps: ConfigProviderProps) {
   const props = useMergeProps<ConfigProviderProps>(baseProps, defaultProps, componentConfig);
-  const { theme, prefixCls, children, locale, rtl} = props;
+  const { theme, prefixCls, children, locale, rtl } = props;
 
   useEffect(() => {
     setTheme(theme);
@@ -96,7 +96,7 @@ function ConfigProvider(baseProps: ConfigProviderProps) {
       // Message.config({ prefixCls, rtl });
       // Notification.config({ prefixCls, rtl });
     }
-  }, [prefixCls, rtl,]);
+  }, [prefixCls, rtl]);
 
   function getPrefixCls(componentName: string, customPrefix?: string) {
     return `${customPrefix || prefixCls}-${componentName}`;

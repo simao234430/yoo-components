@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import {Cascader,Select , Calendar,Trigger, Switch,Button,Badge,Avatar, Tooltip,Input,Divider,  Typography,Space }  from '../packages/components/src'
+import {Cascader,Select ,Drawer, Calendar,Trigger, Switch,Button,Badge,Avatar, Tooltip,Input,Divider,  Typography,Space }  from '../packages/components/src'
 import React from 'react'
 import IconPlus from '../Icon/react-icon/IconPlus';
 import IconMinus from '../Icon/react-icon/IconMinus';
@@ -73,25 +73,39 @@ const options = [
 ];
 
 function App() {
+  const [visible, setVisible] = useState(false);
   const [trigger, setTrigger] = React.useState(['click']);
   const [count, setCount] = React.useState<number>(12);
-  const [visible, setVisible] = React.useState(false);
+ 
   const [visible2, setVisible2] = React.useState(false);
   const [visible3, setVisible3] = React.useState(false);
  
   return (
  <>
-   <div>
-   <Cascader
-      placeholder='Please select ...'
-      style={{ width: 300 }}
-      options={options}
-      onChange={(value, option) => {
-        console.log(value, option);
-      }}
-      defaultValue={['shanghai', 'shanghaishi', 'huangpu']}
-      allowClear
-    />
+      <div>
+      <Button
+        onClick={() => {
+          setVisible(true);
+        }}
+        type='primary'
+      >
+        Open Drawer
+      </Button>
+      <Drawer
+        width={332}
+        title={<span>Basic Information </span>}
+        visible={visible}
+        onOk={() => {
+          setVisible(false);
+        }}
+        onCancel={() => {
+          setVisible(false);
+        }}
+      >
+        <div>Here is an example text.</div>
+
+        <div>Here is an example text.</div>
+      </Drawer>
     </div>
  
       <h1>Vite + React</h1>

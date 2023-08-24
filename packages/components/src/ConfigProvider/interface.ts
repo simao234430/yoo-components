@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { Locale } from '../locale/interface'; 
+import { PaginationProps } from '../Pagination/interface';
 import { AffixProps } from '../Affix/interface';
 import { AlertProps } from '../Alert/interface';
 import { AnchorLinkProps, AnchorProps } from '../Anchor/interface';
@@ -7,7 +8,7 @@ import { AutoCompleteProps } from '../AutoComplete/interface';
 import { AvatarProps, AvatarGroupProps } from '../Avatar/interface';
 import { BackTopProps } from '../BackTop/interface';
 import { BadgeProps } from '../Badge/interface';
-// import { BreadcrumbProps } from '../Breadcrumb/interface';
+import { BreadcrumbProps } from '../Breadcrumb/interface';
 import { ButtonProps } from '../Button/interface';
 import { CalendarProps } from '../Calendar/interface';
 import { CardProps } from '../Card/interface';
@@ -17,22 +18,22 @@ import { CheckboxProps } from '../Checkbox/interface';
 import { CollapseProps } from '../Collapse/interface';
 import { CommentProps } from '../Comment/interface';
 // import { PickerProps as DatePickerCommonProps } from '../DatePicker/interface';
-// import { DescriptionsProps } from '../Descriptions/interface';
+import { DescriptionsProps } from '../Descriptions/interface';
 import { DividerProps } from '../Divider/interface';
-// import { DrawerProps } from '../Drawer/interface';
-// import { DropdownProps, DropdownButtonProps } from '../Dropdown/interface';
+import { DrawerProps } from '../Drawer/interface';
+import { DropdownProps, DropdownButtonProps } from '../Dropdown/interface';
 import { EmptyProps } from '../Empty/interface';
-// import { FormProps } from '../Form/interface';
+import { FormProps } from '../Form/interface';
 import { RowProps, ColProps, GridProps, GridItemProps } from '../Grid/interface';
-// import { ImageProps } from '../Image/interface';
+import { ImageProps } from '../Image/interface';
 import { InputProps } from '../Input/interface';
-// import { InputNumberProps } from '../InputNumber/interface';
+import { InputNumberProps } from '../InputNumber/interface';
 import { InputTagProps } from '../InputTag/interface';
 import { LayoutProps } from '../Layout/interface';
 import { LinkProps } from '../Link/interface';
-// import { ListItemProps, ListProps } from '../List/interface';
+import { ListItemProps, ListProps } from '../List/interface';
 // import { MentionsProps } from '../Mentions/interface';
-// import { MenuProps } from '../Menu/interface';
+import { MenuProps } from '../Menu/interface';
 // import { ModalProps } from '../Modal/interface';
 // import { PageHeaderProps } from '../PageHeader/interface';
 // import { PopconfirmProps } from '../Popconfirm/interface';
@@ -73,7 +74,7 @@ export type ComponentConfig = {
   'Anchor.Link'?: AnchorLinkProps;
   BackTop?: BackTopProps;
   Badge?: BadgeProps;
-  // Breadcrumb?: BreadcrumbProps;
+  Breadcrumb?: BreadcrumbProps;
   Button?: ButtonProps;
   Calendar?: CalendarProps;
   Card?: CardProps;
@@ -92,30 +93,30 @@ export type ComponentConfig = {
   //   | 'pickerValue'
   //   | 'onPickerValueChange'
   // >;
-  // Descriptions?: DescriptionsProps;
+  Descriptions?: DescriptionsProps;
   Divider?: DividerProps;
-  // Drawer?: DrawerProps;
-  // Dropdown?: DropdownProps;
-  // 'Dropdown.Button'?: DropdownButtonProps;
+  Drawer?: DrawerProps;
+  Dropdown?: DropdownProps;
+  'Dropdown.Button'?: DropdownButtonProps;
   Empty?: EmptyProps;
-  // Form?: FormProps;
+  Form?: FormProps;
   'Grid.Row'?: RowProps;
   'Grid.Col'?: ColProps;
   Grid?: GridProps;
   'Grid.GridItem'?: GridItemProps;
-  // Image?: ImageProps;
+  Image?: ImageProps;
   Input?: InputProps;
-  // InputNumber?: InputNumberProps;
+  InputNumber?: InputNumberProps;
   InputTag?: InputTagProps;
   Layout?: LayoutProps;
   Link?: LinkProps;
-  // List?: ListProps;
-  // 'List.Item'?: ListItemProps;
+  List?: ListProps;
+  'List.Item'?: ListItemProps;
   // Mentions?: MentionsProps;
-  // Menu?: MenuProps;
+  Menu?: MenuProps;
   // Modal?: ModalProps;
   // PageHeader?: PageHeaderProps;
-  // Pagination?: PaginationProps;
+  Pagination?: PaginationProps;
   // Popconfirm?: PopconfirmProps;
   Popover?: PopoverProps;
   // Progress?: ProgressProps;
@@ -211,7 +212,16 @@ export interface ConfigProviderProps {
    * @defaultValue () => document.body
    */
   getPopupContainer?: (node: HTMLElement) => Element;
-
+  /**
+   * @zh 全局配置弹出框的 `focusLock`，作用于 `Modal` `Drawer` 组件。
+   * @en global `focusLock`, affects component `Modal` `Drawer`.
+   * @defaultValue { modal: { autoFocus: true }, drawer: { autoFocus: true }}
+   * @version 2.13.0
+   */
+  focusLock?: {
+    modal?: boolean | { autoFocus?: boolean };
+    drawer?: boolean | { autoFocus?: boolean };
+  };
   zIndex?: number;
   children?: ReactNode;
 }

@@ -4,7 +4,7 @@
     "module": "ESNext",
     "jsx": "react",
     "target": "ESNext",
-    "lib": ["es5", "dom"],
+    "lib": ["ESNext", "dom"],
     "moduleResolution": "node",
     "declaration": false,
     "noUnusedLocals": true,

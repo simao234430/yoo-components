@@ -79,3 +79,9 @@ export { default as Cascader } from './Cascader';
 
 export type { SpaceProps } from './Space/interface';
 export { default as Space } from './Space';
+
+export type { FormProps, FormItemProps, FormListProps, FormInstance, RulesProps } from './Form/interface';
+export { default as Form } from './Form';
+
+export type { DrawerProps } from './Drawer/interface';
+export { default as Drawer } from './Drawer';
