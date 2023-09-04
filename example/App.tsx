@@ -2,13 +2,10 @@ import { useState } from 'react'
 import './App.css'
 import {Cascader,Select ,Drawer, Calendar,Trigger, Switch,Button,Badge,Avatar, Tooltip,Input,Divider,  Typography,Space }  from '../packages/components/src'
 import React from 'react'
-import IconPlus from '../Icon/react-icon/IconPlus';
-import IconMinus from '../Icon/react-icon/IconMinus';
+import {
+  IconApps,IconArrowDown
+} from '../icon/index.es';
  
-import IconStar from '../Icon/react-icon/IconStar';
-import IconMessage from '../Icon/react-icon/IconMessage';
-import IconSettings from '../Icon/react-icon/IconSettings';
-import IconDelete from '../Icon/react-icon/IconDelete';
 const InputSearch = Input.Search;
 const { Paragraph } = Typography;
 const orientations = ['left', 'center', 'right'];
@@ -83,6 +80,8 @@ function App() {
   return (
  <>
       <div>
+        <IconArrowDown></IconArrowDown>
+        <IconApps></IconApps>
       <Button
         onClick={() => {
           setVisible(true);

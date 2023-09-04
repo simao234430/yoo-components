@@ -16,9 +16,9 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": "./",
     "paths": {
-      "@simao234430/yoo-components": ["packages/components/src/index.tsx"],
+      "@simao234430/yoo-components": ["components/index.tsx"],
     }
   },
-  "include": ["packages/components/src/**/*.ts", "packages/components/src/**/*.tsx"],
+  "include": ["components/**/*.ts", "components/**/*.tsx"],
   "exclude": ["node_modules", "build"] // *** 不进行类型检查的文件 ***}
 }
